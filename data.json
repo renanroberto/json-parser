@@ -1,0 +1,15 @@
+{
+  "name": "Renan Roberto",
+  "age": 22,
+  "hobbies": ["games", "programming", "speedrunning"],
+  /*
+    The following data are fictitious.
+    Please, do not sue the following company.
+  */
+  "job": {
+    "name": "Imaginary \"Good\" Company",
+    "salary": null, // Actually we don't pay him. Because we don't exist
+    "role": "Programmer",
+    "active": false
+  }
+}

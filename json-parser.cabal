@@ -25,6 +25,7 @@ source-repository head
 
 library
   exposed-modules:
+      JsonParser
       Parser
   other-modules:
       Paths_json_parser

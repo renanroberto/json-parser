@@ -102,3 +102,4 @@ parseJsonC str =
     <&> snd
     >>= runParser parseJson
     <&> snd
+    & evalStateT initialState

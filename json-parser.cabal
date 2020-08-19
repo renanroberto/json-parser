@@ -27,6 +27,7 @@ library
   exposed-modules:
       JsonParser
       Parser
+      State
   other-modules:
       Paths_json_parser
   hs-source-dirs:

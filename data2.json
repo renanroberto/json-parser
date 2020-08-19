@@ -1,0 +1,11 @@
+{
+  "name": "Renan Roberto",
+  "age": 22,
+  "hobbies": ["games", "programming", "speedrunning"],
+  "job": {
+    "name": "Imaginary \"Good\" Company",
+      "salary": null,
+    "role": "Programmer",
+    "active": false
+  }
+}

@@ -96,10 +96,7 @@ parseComment = many $
 
 
 parseJsonC :: String -> Either ParserError JsonValue
-parseJsonC str =
-  str
-    & runParser parseComment
-    <&> snd
-    >>= runParser parseJson
-    <&> snd
-    & evalStateT initialState
+parseJsonC input = do
+  (_, input') <- evalStateT initialState $ runParser parseComment input
+  (_, json) <- evalStateT initialState $ runParser parseJson input'
+  return json

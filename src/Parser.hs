@@ -168,10 +168,13 @@ string :: String -> Parser String
 string = traverse char
 
 spanP :: (Char -> Bool) -> Parser String
-spanP pred = Parser $ \input -> do
-  let (value, input') = span pred input
-  modify $ addCol (length value)
-  return (input', value)
+spanP pred = many $ Parser p
+  where p (s:str)
+          | pred s = do
+              if s == '\n' then modify (addRow 1) else modify (addCol 1)
+              return (str, s)
+          | otherwise = parseError "Unmatched predicate"
+        p _ = parseError "Unmatched predicate"
 
 -- Not used
 notNull :: String -> Parser [a] -> Parser [a]
@@ -212,7 +215,6 @@ anyChar = Parser $ h
           return (str, s)
         h _ = parseError "Unexpected end of file"
 
--- TODO: verify if they are properly counting
 space :: Parser String
 space = spanP isSpace
 
